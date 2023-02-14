@@ -1,14 +1,18 @@
 package ru.netology.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.netology.model.Post;
 import ru.netology.service.PostService;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/posts")
 public class PostController {
+  public static final String APPLICATION_JSON = "application/json";
   private final PostService service;
 
   public PostController(PostService service) {
@@ -31,7 +35,7 @@ public class PostController {
   }
 
   @DeleteMapping("/{id}")
-  public void removeById(long id) {
+  public void removeById(@PathVariable long id) {
     service.removeById(id);
   }
 }

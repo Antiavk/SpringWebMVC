@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class PostRepositoryStubImpl implements PostRepository {
+public class PostRepositoryStubImpl extends PostRepository {
   public List<Post> all() {
     return Collections.emptyList();
   }
